@@ -95,7 +95,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
-  h1?: Flex__<"h1">;
+  h2?: Flex__<"h2">;
   textInput?: Flex__<typeof TextInput>;
   button?: Flex__<typeof Button>;
   pageMetadataOverride?: Flex__<typeof PlasmicHead>;
@@ -222,14 +222,14 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
+            <h2
+              data-plasmic-name={"h2"}
+              data-plasmic-override={overrides.h2}
               className={classNames(
                 projectcss.all,
-                projectcss.h1,
+                projectcss.h2,
                 projectcss.__wab_text,
-                sty.h1
+                sty.h2
               )}
             >
               <React.Fragment>
@@ -253,7 +253,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   }
                 })()}
               </React.Fragment>
-            </h1>
+            </h2>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__qGcDc)}
@@ -418,13 +418,13 @@ const PlasmicDescendants = {
   root: [
     "root",
     "section",
-    "h1",
+    "h2",
     "textInput",
     "button",
     "pageMetadataOverride"
   ],
-  section: ["section", "h1", "textInput", "button"],
-  h1: ["h1"],
+  section: ["section", "h2", "textInput", "button"],
+  h2: ["h2"],
   textInput: ["textInput"],
   button: ["button"],
   pageMetadataOverride: ["pageMetadataOverride"]
@@ -435,7 +435,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   section: "section";
-  h1: "h1";
+  h2: "h2";
   textInput: typeof TextInput;
   button: typeof Button;
   pageMetadataOverride: typeof PlasmicHead;
@@ -502,7 +502,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
-    h1: makeNodeComponent("h1"),
+    h2: makeNodeComponent("h2"),
     textInput: makeNodeComponent("textInput"),
     button: makeNodeComponent("button"),
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
