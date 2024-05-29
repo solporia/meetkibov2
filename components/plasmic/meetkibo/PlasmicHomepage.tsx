@@ -59,16 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
-
-import TextInput from "../../TextInput"; // plasmic-import: MrhOC2NBM2Qt/component
 import Button from "../../Button"; // plasmic-import: wqmCo9mRyVtE/component
 import { PlasmicHead } from "@plasmicapp/react-web";
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsgQOi3Wtw8CV } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: g-qOi3Wtw8cV/globalVariant
 
@@ -77,7 +69,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 7EyJGSd7UttKZWYRvjnPLx/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: 8r0vDOdzwUX7/css
 
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: kP3Sh-djLURo/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: cNnskVLkWJzV/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: d6DNsQZPOKDt/icon
 
@@ -95,8 +86,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
-  h2?: Flex__<"h2">;
-  textInput?: Flex__<typeof TextInput>;
+  h3?: Flex__<"h3">;
   button?: Flex__<typeof Button>;
   pageMetadataOverride?: Flex__<typeof PlasmicHead>;
 };
@@ -134,29 +124,14 @@ function PlasmicHomepage__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "searchwlkibo",
+        path: "cad",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "0x9C9713a030f70987efbf61264b42b289dF1c9427"
-      },
-      {
-        path: "isKiboWl",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+          "BxgHG3kTP1ngj1hfyfxgvj8HN3Wum2hADhb6rbL6pwcY"
       }
     ],
     [$props, $ctx, $refs]
@@ -164,29 +139,9 @@ function PlasmicHomepage__RenderFunc(props: {
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
-    $queries: $queries,
+    $queries: {},
     $refs
   });
-
-  const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
-    query: usePlasmicDataOp(() => {
-      return {
-        sourceId: "n66JGqDiyLLnLgoECHYmtz",
-        opId: "effaaa8f-055b-4afa-af1a-defc034bf3bc",
-        userArgs: {
-          filters: [$state.searchwlkibo]
-        },
-        cacheKey: `plasmic.$.effaaa8f-055b-4afa-af1a-defc034bf3bc.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    })
-  };
-  if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
-    setDollarQueries(new$Queries);
-
-    $queries = new$Queries;
-  }
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsgQOi3Wtw8CV()
@@ -222,38 +177,6 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            <h2
-              data-plasmic-name={"h2"}
-              data-plasmic-override={overrides.h2}
-              className={classNames(
-                projectcss.all,
-                projectcss.h2,
-                projectcss.__wab_text,
-                sty.h2
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $state.textInput.value === ""
-                      ? ""
-                      : $queries.query.isLoading
-                      ? ""
-                      : $state.isKiboWl
-                      ? "Whitelisted!!"
-                      : "Not Whitelisted";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </h2>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__qGcDc)}
@@ -292,9 +215,9 @@ function PlasmicHomepage__RenderFunc(props: {
                 displayWidth={"auto"}
                 loading={"lazy"}
                 src={{
-                  src: "/plasmic/meetkibo/images/kiboWalletpng.png",
-                  fullWidth: 2048,
-                  fullHeight: 2048,
+                  src: "/plasmic/meetkibo/images/kibocoinjpeg.jpg",
+                  fullWidth: 1600,
+                  fullHeight: 1600,
                   aspectRatio: undefined
                 }}
               />
@@ -302,68 +225,45 @@ function PlasmicHomepage__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__aiUft)}
+                className={classNames(projectcss.all, sty.freeBox__gjCyz)}
               >
-                <TextInput
-                  data-plasmic-name={"textInput"}
-                  data-plasmic-override={overrides.textInput}
-                  className={classNames("__wab_instance", sty.textInput)}
-                  onChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["textInput", "value"])(
-                        (e => e.target?.value).apply(null, eventArgs)
-                      );
-                    }).apply(null, eventArgs);
-                    (async event => {
-                      const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return ($state.searchwlkibo =
-                                    $state.textInput.value);
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                <h3
+                  data-plasmic-name={"h3"}
+                  data-plasmic-override={overrides.h3}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h3,
+                    projectcss.__wab_text,
+                    sty.h3
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          const text = $state.cad;
+                          const maskedText =
+                            text.substring(0, 5) +
+                            "...." +
+                            text.substring(text.length - 5);
+                          return maskedText;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
                       }
-                    }).apply(null, eventArgs);
-                  }}
-                  placeholder={"Enter Wallet address\u2026"}
-                  value={
-                    generateStateValueProp($state, ["textInput", "value"]) ?? ""
-                  }
-                />
-
+                    })()}
+                  </React.Fragment>
+                </h3>
                 <Button
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
                   className={classNames("__wab_instance", sty.button)}
-                  isDisabled={(() => {
-                    try {
-                      return $queries.query.isLoading;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
                   onClick={async event => {
                     const $steps = {};
 
@@ -372,10 +272,10 @@ function PlasmicHomepage__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                $state.searchwlkibo = $state.textInput.value;
-                                $state.isKiboWl =
-                                  $queries.query.data.length !== 0;
-                                return $state.searchwlkibo;
+                                navigator.clipboard.writeText($state.cad);
+                                return alert(
+                                  "Copied the Contract Address" + $state.cad
+                                );
                               })();
                             }
                           };
@@ -393,7 +293,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     }
                   }}
                 >
-                  {"GO!!"}
+                  {"Copy"}
                 </Button>
               </Stack__>
             </div>
@@ -415,17 +315,9 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "section",
-    "h2",
-    "textInput",
-    "button",
-    "pageMetadataOverride"
-  ],
-  section: ["section", "h2", "textInput", "button"],
-  h2: ["h2"],
-  textInput: ["textInput"],
+  root: ["root", "section", "h3", "button", "pageMetadataOverride"],
+  section: ["section", "h3", "button"],
+  h3: ["h3"],
   button: ["button"],
   pageMetadataOverride: ["pageMetadataOverride"]
 } as const;
@@ -435,8 +327,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   section: "section";
-  h2: "h2";
-  textInput: typeof TextInput;
+  h3: "h3";
   button: typeof Button;
   pageMetadataOverride: typeof PlasmicHead;
 };
@@ -502,8 +393,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
-    h2: makeNodeComponent("h2"),
-    textInput: makeNodeComponent("textInput"),
+    h3: makeNodeComponent("h3"),
     button: makeNodeComponent("button"),
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
 

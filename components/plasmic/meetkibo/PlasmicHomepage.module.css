@@ -35,7 +35,7 @@
   display: grid;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
   grid-row-gap: 16px;
   align-content: center;
   justify-items: center;
@@ -57,16 +57,6 @@
   .section > * {
     grid-column: 4;
   }
-}
-.h2 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-weight: 700;
-  font-family: "Permanent Marker";
-  min-width: 0;
 }
 .img__qGcDc {
   position: fixed;
@@ -92,7 +82,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
   width: 800px;
   height: auto;
@@ -117,72 +107,59 @@
     min-width: 600px;
   }
 }
-.freeBox__aiUft {
+.freeBox__gjCyz {
   display: flex;
   position: relative;
   flex-direction: row;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  margin-top: -15%;
-  padding-left: 29%;
-  padding-right: 29%;
-  min-width: 0;
+  margin-top: -100px;
+  background: #ffffff73;
+  overflow: hidden;
+  filter: none;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 12px;
+  padding: 24px;
+  border: 2px solid #ffffff;
 }
-.freeBox__aiUft > :global(.__wab_flex-container) {
+.freeBox__gjCyz > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-width: 0;
   margin-left: calc(0px - 24px);
   width: calc(100% + 24px);
 }
-.freeBox__aiUft > :global(.__wab_flex-container) > *,
-.freeBox__aiUft > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__aiUft > :global(.__wab_flex-container) > picture > img,
-.freeBox__aiUft
+.freeBox__gjCyz > :global(.__wab_flex-container) > *,
+.freeBox__gjCyz > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__gjCyz > :global(.__wab_flex-container) > picture > img,
+.freeBox__gjCyz
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-left: 24px;
 }
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__aiUft {
-    margin-top: -27%;
-    padding: 0px 14%;
-  }
-}
-.textInput:global(.__wab_instance) {
+.h3 {
   position: relative;
+  width: auto;
+  height: auto;
   max-width: 100%;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(-2deg);
-  width: 100%;
-}
-.svg__ajEq {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.svg__uDqp8 {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
+  font-family: "Luckiest Guy";
+  text-align: center;
 }
 .button:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(-2deg);
 }
-.svg__evknj {
+.svg__g3WyS {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__gBrv {
+.svg__ankTu {
   position: relative;
   object-fit: cover;
   width: auto;

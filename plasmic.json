@@ -177,6 +177,11 @@
           "id": "_AfzZrTN-4dY",
           "name": "Gun_wallet_checker-onli.png",
           "filePath": "../public/plasmic/meetkibo/images/gunWalletCheckerOnlipng.png"
+        },
+        {
+          "id": "a0wQHDKG_bfe",
+          "name": "kibocoin.jpeg",
+          "filePath": "../public/plasmic/meetkibo/images/kibocoinjpeg.jpg"
         }
       ],
       "indirect": false,
